@@ -1,5 +1,5 @@
 class RackGreeter
   def call(env)
-    [200, {"Content-Type" => "text/plain"}, ["Hello World!"]]
+    Rack::Response.new("Hello")
   end
 end
