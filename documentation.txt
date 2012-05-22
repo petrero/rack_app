@@ -1,1 +1,3 @@
 http://github.com/rack/rack/blob/master/lib/rack/server.rb
+http://rubydoc.info/github/rack/rack/frames
+https://github.com/rack/rack-contrib
