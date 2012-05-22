@@ -4,7 +4,11 @@ class RackGreeter
     request = Rack::Request.new(env)
     case request.path
     when "/" then Rack::Response.new(render("index.html.erb"))
-    when "/change" then Rack::Response.new(request.params["name"])
+    when "/change" 
+      Rack::Response.new do |response|
+        response.set_cookie("greet", request.params["name"])
+        response.redirect("/")
+      end
     else Rack::Response.new("Not Found", 404) 
     end
   end
