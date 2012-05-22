@@ -1,7 +1,15 @@
 require "erb"
 class RackGreeter
-  def call(env)
+
+  def self.call(env)
+    new(env).response.finish #finish convert returned Rack::Response object in an array format that rack expects 
+  end
+
+  def initialize(env)
     @request = Rack::Request.new(env)
+  end
+  
+  def response
     case @request.path
     when "/" then Rack::Response.new(render("index.html.erb"))
     when "/change" 
